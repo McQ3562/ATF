@@ -74,6 +74,7 @@
     <Compile Include="Response.cs" />
     <Compile Include="TestCase.cs" />
     <Compile Include="TestCaseStep.cs" />
+    <Compile Include="TestPlan.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

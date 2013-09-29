@@ -30,8 +30,8 @@ namespace ATF
             List<int> StepIDList = new List<int>();
             List<List<string>> results = new List<List<string>>();
             DB_Connection conn = new DB_Connection(DB_ConnectionString.GetAFT_ConfigConnectionString());
-            
-            results = conn.ReturnQuery("EXEC sp_GetTestCaseIDList");
+
+            results = conn.ReturnQuery("EXEC sp_GetTestCaseStepIDList");
             if (results.Count > 0)
             {
                 for (int counter = 1; counter < results[0].Count; counter++)
