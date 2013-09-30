@@ -1,7 +1,10 @@
 USE ATF_Config
 
+DECLARE @TestPlanID INT
 DECLARE @TestCaseID INT
 DECLARE @TestCaseStepID INT
+
+EXEC sp_AddTestPlan '', '', @TestPlanID OUT
 
 EXEC sp_AddTestCase 'GoogleTest', @TestCaseID OUT
 

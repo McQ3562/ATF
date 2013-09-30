@@ -1,5 +1,19 @@
 USE ATF_Config
 GO
+IF(EXISTS(SELECT 1 FROM sys.procedures WHERE name = 'sp_AddTestPlan'))
+	DROP PROCEDURE sp_AddTestPlan
+GO
+CREATE PROC sp_AddTestPlan
+	@TestPlanName VARCHAR(50),
+	@Browser VARCHAR(50),
+	@TestPlanID INT OUT
+AS
+
+INSERT INTO TestPlan (TestPlanName, Browser)
+VALUES(@TestPlanName, @Browser)
+
+SET @TestPlanID = @@IDENTITY
+GO
 IF(EXISTS(SELECT 1 FROM sys.procedures WHERE name = 'sp_AddTestCase'))
 	DROP PROCEDURE sp_AddTestCase
 GO
