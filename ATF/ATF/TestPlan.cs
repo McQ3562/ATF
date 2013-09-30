@@ -14,7 +14,7 @@ namespace ATF
 
         }
 
-        private List<List<string>> GetTestCaseList()
+        public List<List<string>> GetTestCaseList()
         {
             List<List<string>> results = new List<List<string>>();
             DB_Connection conn = new DB_Connection(DB_ConnectionString.GetAFT_ConfigConnectionString());

@@ -10,7 +10,7 @@ namespace ATF
         int actionID;
         int testCaseStepID;
         string actionName;
-        List<string> actionName = new List<string>();
+        List<string> actionNames = new List<string>();
         List<string> actionOptions = new List<string>();
 
 

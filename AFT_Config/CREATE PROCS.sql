@@ -77,6 +77,16 @@ INSERT INTO ActionOptions (TestCaseStepID, ActionOptionName, ActionOptionValue)
 VALUES (@TestCaseStepID, @ResponseOptionName, @ResponseOptionValue)
 GO
 
+IF(EXISTS(SELECT 1 FROM sys.procedures WHERE name = 'sp_GetTestPlanList'))
+	DROP PROCEDURE sp_GetTestCaseIDList
+GO
+CREATE PROC sp_GetTestPlanList
+AS
+SELECT TestPlanID, TestPlanName, Browser
+FROM TestPlan
+ORDER BY TestPlanID
+GO
+
 IF(EXISTS(SELECT 1 FROM sys.procedures WHERE name = 'sp_GetTestCaseIDList'))
 	DROP PROCEDURE sp_GetTestCaseIDList
 GO

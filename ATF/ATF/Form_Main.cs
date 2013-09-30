@@ -11,6 +11,8 @@ namespace ATF
 {
     public partial class Form_Main : Form
     {
+        TestPlan currentTestPlan = new TestPlan();
+
         public Form_Main()
         {
             InitializeComponent();
@@ -20,15 +22,20 @@ namespace ATF
         {
             List<List<string>> results = new List<List<string>>();
             DB_Connection conn = new DB_Connection(DB_ConnectionString.GetAFT_ConfigConnectionString());
-            results = conn.ReturnQuery("EXEC sp_GetTestCaseList");
+            results = conn.ReturnQuery("EXEC sp_GetTestPlanList");
 
             if (results.Count > 0)
             {
                 for (int counter = 1; counter < results[0].Count; counter++)
                 {
-                    comboBox_TestPlan.Items.Add(results[0][counter]);
+                    comboBox_TestPlan.Items.Add(results[1][counter]);
                 }
             }
+        }
+
+        private void comboBox_TestPlan_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            currentTestPlan.Load();
         }
     }
 }

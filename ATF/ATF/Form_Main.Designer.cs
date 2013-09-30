@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.listView_TestCaseList = new System.Windows.Forms.ListView();
-            this.columnHeader_TestCaseName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader_ID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader_TestCaseName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader_Result = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label1 = new System.Windows.Forms.Label();
             this.comboBox_TestPlan = new System.Windows.Forms.ComboBox();
-            this.columnHeader_Result = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label2 = new System.Windows.Forms.Label();
             this.button_RunAll = new System.Windows.Forms.Button();
             this.button_RunSelected = new System.Windows.Forms.Button();
@@ -54,17 +54,22 @@
             this.listView_TestCaseList.UseCompatibleStateImageBehavior = false;
             this.listView_TestCaseList.View = System.Windows.Forms.View.Details;
             // 
+            // columnHeader_ID
+            // 
+            this.columnHeader_ID.DisplayIndex = 1;
+            this.columnHeader_ID.Text = "ID";
+            this.columnHeader_ID.Width = 0;
+            // 
             // columnHeader_TestCaseName
             // 
             this.columnHeader_TestCaseName.DisplayIndex = 0;
             this.columnHeader_TestCaseName.Text = "Test Case";
             this.columnHeader_TestCaseName.Width = 199;
             // 
-            // columnHeader_ID
+            // columnHeader_Result
             // 
-            this.columnHeader_ID.DisplayIndex = 1;
-            this.columnHeader_ID.Text = "ID";
-            this.columnHeader_ID.Width = 0;
+            this.columnHeader_Result.Text = "Pass / Fail";
+            this.columnHeader_Result.Width = 65;
             // 
             // label1
             // 
@@ -77,16 +82,13 @@
             // 
             // comboBox_TestPlan
             // 
+            this.comboBox_TestPlan.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox_TestPlan.FormattingEnabled = true;
             this.comboBox_TestPlan.Location = new System.Drawing.Point(12, 25);
             this.comboBox_TestPlan.Name = "comboBox_TestPlan";
             this.comboBox_TestPlan.Size = new System.Drawing.Size(268, 21);
             this.comboBox_TestPlan.TabIndex = 2;
-            // 
-            // columnHeader_Result
-            // 
-            this.columnHeader_Result.Text = "Pass / Fail";
-            this.columnHeader_Result.Width = 65;
+            this.comboBox_TestPlan.SelectedIndexChanged += new System.EventHandler(this.comboBox_TestPlan_SelectedIndexChanged);
             // 
             // label2
             // 
