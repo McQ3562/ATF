@@ -73,6 +73,16 @@ FROM TestCase
 ORDER BY TestCaseID
 GO
 
+IF(EXISTS(SELECT 1 FROM sys.procedures WHERE name = 'sp_GetTestCaseList'))
+	DROP PROCEDURE sp_GetTestCaseList
+GO
+CREATE PROC sp_GetTestCaseList
+AS
+SELECT TestCaseID, TestCaseName
+FROM TestCase
+ORDER BY TestCaseID
+GO
+
 IF(EXISTS(SELECT 1 FROM sys.procedures WHERE name = 'sp_GetTestCaseStepIDList'))
 	DROP PROCEDURE sp_GetTestCaseStepIDList
 GO

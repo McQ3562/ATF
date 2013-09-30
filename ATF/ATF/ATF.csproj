@@ -69,12 +69,24 @@
     <Compile Include="Form_Main.Designer.cs">
       <DependentUpon>Form_Main.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form_TestCaseSteps_Editor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_TestCaseSteps_Editor.Designer.cs">
+      <DependentUpon>Form_TestCaseSteps_Editor.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Response.cs" />
     <Compile Include="TestCase.cs" />
     <Compile Include="TestCaseStep.cs" />
     <Compile Include="TestPlan.cs" />
+    <EmbeddedResource Include="Form_Main.resx">
+      <DependentUpon>Form_Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_TestCaseSteps_Editor.resx">
+      <DependentUpon>Form_TestCaseSteps_Editor.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

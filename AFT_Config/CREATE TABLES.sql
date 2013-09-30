@@ -24,6 +24,15 @@ CREATE TABLE
 
 USE ATF_Config
 GO
+IF(EXISTS(SELECT 1 FROM sys.tables WHERE name = 'TestPlan'))
+	DROP TABLE TestPlan
+GO
+CREATE TABLE TestPlan (
+	TestPlanID INT IDENTITY(1,1),
+	TestPlanName VARCHAR(50),
+	Browser VARCHAR(50)
+)
+GO
 IF(EXISTS(SELECT 1 FROM sys.tables WHERE name = 'TestCase'))
 	DROP TABLE TestCase
 GO
@@ -31,7 +40,7 @@ CREATE TABLE TestCase (
 	TestCaseID INT IDENTITY(1,1),
 	TestCaseName VARCHAR(50)
 )
-
+GO
 IF(EXISTS(SELECT 1 FROM sys.tables WHERE name = 'TestCaseStep'))
 	DROP TABLE TestCaseStep
 GO

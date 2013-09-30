@@ -9,7 +9,12 @@ namespace ATF
     {
         List<TestCase> TestCaseList = new List<TestCase>();
 
-        public List<List<string>> GetTestCaseList()
+        public void Load()
+        {
+
+        }
+
+        private List<List<string>> GetTestCaseList()
         {
             List<List<string>> results = new List<List<string>>();
             DB_Connection conn = new DB_Connection(DB_ConnectionString.GetAFT_ConfigConnectionString());

@@ -15,5 +15,20 @@ namespace ATF
         {
             InitializeComponent();
         }
+
+        private void Form_Main_Load(object sender, EventArgs e)
+        {
+            List<List<string>> results = new List<List<string>>();
+            DB_Connection conn = new DB_Connection(DB_ConnectionString.GetAFT_ConfigConnectionString());
+            results = conn.ReturnQuery("EXEC sp_GetTestCaseList");
+
+            if (results.Count > 0)
+            {
+                for (int counter = 1; counter < results[0].Count; counter++)
+                {
+                    comboBox_TestPlan.Items.Add(results[0][counter]);
+                }
+            }
+        }
     }
 }
