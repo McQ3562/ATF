@@ -19,7 +19,7 @@ namespace ATF
             List<List<string>> results = new List<List<string>>();
             DB_Connection conn = new DB_Connection(DB_ConnectionString.GetAFT_ConfigConnectionString());
 
-            results = conn.ReturnQuery("EXEC sp_GetTestCaseStepIDList");
+            results = conn.ReturnQuery("EXEC sp_GetTestCaseIDList");
             if (results.Count > 0)
             {
                 return results;

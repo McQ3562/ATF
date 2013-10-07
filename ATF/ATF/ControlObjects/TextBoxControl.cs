@@ -40,5 +40,10 @@ namespace ATF.ControlObjects
 
             return readString;
         }
+
+        public void Go(Action ActionObject)
+        {
+
+        }
     }
 }

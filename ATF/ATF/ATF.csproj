@@ -60,6 +60,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Action.cs" />
+    <Compile Include="ControlManager.cs" />
     <Compile Include="ControlObjects\TextBoxControl.cs" />
     <Compile Include="ControlObjects\WebPageControl.cs" />
     <Compile Include="DB_Connection.cs" />
