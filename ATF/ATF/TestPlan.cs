@@ -11,10 +11,10 @@ namespace ATF
 
         public void Load(string testPlanID)
         {
-            List<List<string>> results = GetTestPlanList()
+            List<int> results = TestCase.GetTestCaseIDList(testPlanID);
         }
 
-        public List<List<string>> GetTestPlanList()
+        public static List<List<string>> GetTestPlanIDList()
         {
             List<List<string>> results = new List<List<string>>();
             DB_Connection conn = new DB_Connection(DB_ConnectionString.GetAFT_ConfigConnectionString());
