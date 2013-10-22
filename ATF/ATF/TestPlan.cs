@@ -9,17 +9,17 @@ namespace ATF
     {
         List<TestCase> TestCaseList = new List<TestCase>();
 
-        public void Load()
+        public void Load(string testPlanID)
         {
-
+            List<List<string>> results = GetTestPlanList()
         }
 
-        public List<List<string>> GetTestCaseList()
+        public List<List<string>> GetTestPlanList()
         {
             List<List<string>> results = new List<List<string>>();
             DB_Connection conn = new DB_Connection(DB_ConnectionString.GetAFT_ConfigConnectionString());
 
-            results = conn.ReturnQuery("EXEC sp_GetTestCaseIDList");
+            results = conn.ReturnQuery("EXEC sp_GetTestPlanIDList");
             if (results.Count > 0)
             {
                 return results;
