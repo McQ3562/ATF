@@ -83,7 +83,6 @@
             // comboBox_TestPlan
             // 
             this.comboBox_TestPlan.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox_TestPlan.FormattingEnabled = true;
             this.comboBox_TestPlan.Location = new System.Drawing.Point(12, 25);
             this.comboBox_TestPlan.Name = "comboBox_TestPlan";
             this.comboBox_TestPlan.Size = new System.Drawing.Size(268, 21);

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
@@ -26,16 +27,41 @@ namespace ATF
 
             if (results.Count > 0)
             {
+                ArrayList testPlanList = new ArrayList();
                 for (int counter = 1; counter < results[0].Count; counter++)
                 {
-                    comboBox_TestPlan.Items.Add(results[1][counter]);
+                    //comboBox_TestPlan.Items.Add(results[1][counter]);
+                    testPlanList.Add(new TestPlanList(results[1][counter],results[2][counter]));
                 }
+                comboBox_TestPlan.DataSource = testPlanList;
             }
         }
 
         private void comboBox_TestPlan_SelectedIndexChanged(object sender, EventArgs e)
         {
-            currentTestPlan.Load();
+            //currentTestPlan.Load();
+        }
+    }
+
+    public class TestPlanList
+    {
+        string testPlanID;
+        string testPlanName;
+
+        public TestPlanList(string TestPlanID, string TestPlanName)
+        {
+            testPlanID = TestPlanID;
+            testPlanName = TestPlanName;
+        }
+
+        public string TestPlanID
+        {
+            get { return testPlanID; }
+        }
+
+        public string TestPlanName
+        {
+            get { return testPlanName; }
         }
     }
 }
