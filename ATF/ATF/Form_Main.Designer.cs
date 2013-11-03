@@ -37,6 +37,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.button_RunAll = new System.Windows.Forms.Button();
             this.button_RunSelected = new System.Windows.Forms.Button();
+            this.button_AddPlan = new System.Windows.Forms.Button();
+            this.button_AddCase = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // listView_TestCaseList
@@ -49,7 +51,7 @@
             this.listView_TestCaseList.Location = new System.Drawing.Point(12, 65);
             this.listView_TestCaseList.MultiSelect = false;
             this.listView_TestCaseList.Name = "listView_TestCaseList";
-            this.listView_TestCaseList.Size = new System.Drawing.Size(268, 175);
+            this.listView_TestCaseList.Size = new System.Drawing.Size(336, 175);
             this.listView_TestCaseList.TabIndex = 0;
             this.listView_TestCaseList.UseCompatibleStateImageBehavior = false;
             this.listView_TestCaseList.View = System.Windows.Forms.View.Details;
@@ -100,7 +102,7 @@
             // 
             // button_RunAll
             // 
-            this.button_RunAll.Location = new System.Drawing.Point(205, 255);
+            this.button_RunAll.Location = new System.Drawing.Point(273, 255);
             this.button_RunAll.Name = "button_RunAll";
             this.button_RunAll.Size = new System.Drawing.Size(75, 23);
             this.button_RunAll.TabIndex = 4;
@@ -109,18 +111,39 @@
             // 
             // button_RunSelected
             // 
-            this.button_RunSelected.Location = new System.Drawing.Point(117, 255);
+            this.button_RunSelected.Location = new System.Drawing.Point(185, 255);
             this.button_RunSelected.Name = "button_RunSelected";
             this.button_RunSelected.Size = new System.Drawing.Size(82, 23);
             this.button_RunSelected.TabIndex = 5;
             this.button_RunSelected.Text = "Run Selected";
             this.button_RunSelected.UseVisualStyleBackColor = true;
             // 
+            // button_AddPlan
+            // 
+            this.button_AddPlan.Location = new System.Drawing.Point(286, 23);
+            this.button_AddPlan.Name = "button_AddPlan";
+            this.button_AddPlan.Size = new System.Drawing.Size(62, 23);
+            this.button_AddPlan.TabIndex = 6;
+            this.button_AddPlan.Text = "Add Plan";
+            this.button_AddPlan.UseVisualStyleBackColor = true;
+            this.button_AddPlan.Click += new System.EventHandler(this.button_AddPlan_Click);
+            // 
+            // button_AddCase
+            // 
+            this.button_AddCase.Location = new System.Drawing.Point(15, 255);
+            this.button_AddCase.Name = "button_AddCase";
+            this.button_AddCase.Size = new System.Drawing.Size(75, 23);
+            this.button_AddCase.TabIndex = 7;
+            this.button_AddCase.Text = "Add Case";
+            this.button_AddCase.UseVisualStyleBackColor = true;
+            // 
             // Form_Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(292, 290);
+            this.ClientSize = new System.Drawing.Size(368, 293);
+            this.Controls.Add(this.button_AddCase);
+            this.Controls.Add(this.button_AddPlan);
             this.Controls.Add(this.button_RunSelected);
             this.Controls.Add(this.button_RunAll);
             this.Controls.Add(this.label2);
@@ -146,6 +169,8 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button button_RunAll;
         private System.Windows.Forms.Button button_RunSelected;
+        private System.Windows.Forms.Button button_AddPlan;
+        private System.Windows.Forms.Button button_AddCase;
     }
 }
 

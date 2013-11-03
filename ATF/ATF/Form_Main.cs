@@ -16,6 +16,8 @@ namespace ATF
 
         public Form_Main()
         {
+
+
             InitializeComponent();
         }
 
@@ -33,13 +35,22 @@ namespace ATF
                     //comboBox_TestPlan.Items.Add(results[1][counter]);
                     testPlanList.Add(new TestPlanList(results[1][counter],results[2][counter]));
                 }
+
                 comboBox_TestPlan.DataSource = testPlanList;
+                comboBox_TestPlan.DisplayMember = "TestPlanName";
+                comboBox_TestPlan.ValueMember = "TestPlanID";
             }
         }
 
         private void comboBox_TestPlan_SelectedIndexChanged(object sender, EventArgs e)
         {
             //currentTestPlan.Load();
+        }
+
+        private void button_AddPlan_Click(object sender, EventArgs e)
+        {
+            Form_Add_TestPlan AddTestPlan = new Form_Add_TestPlan();
+            AddTestPlan.ShowDialog();
         }
     }
 
