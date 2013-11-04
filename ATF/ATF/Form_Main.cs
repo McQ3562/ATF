@@ -12,39 +12,25 @@ namespace ATF
 {
     public partial class Form_Main : Form
     {
-        TestPlan currentTestPlan = new TestPlan();
+        TestPlan currentTestPlan;
 
         public Form_Main()
         {
-
-
             InitializeComponent();
         }
 
         private void Form_Main_Load(object sender, EventArgs e)
         {
-            List<List<string>> results = new List<List<string>>();
-            DB_Connection conn = new DB_Connection(DB_ConnectionString.GetAFT_ConfigConnectionString());
-            results = conn.ReturnQuery("EXEC sp_GetTestPlanList");
-
-            if (results.Count > 0)
-            {
-                ArrayList testPlanList = new ArrayList();
-                for (int counter = 1; counter < results[0].Count; counter++)
-                {
-                    //comboBox_TestPlan.Items.Add(results[1][counter]);
-                    testPlanList.Add(new TestPlanList(results[2][counter],results[1][counter]));
-                }
-
-                comboBox_TestPlan.DataSource = testPlanList;
-                comboBox_TestPlan.DisplayMember = "TestPlanName";
-                comboBox_TestPlan.ValueMember = "TestPlanID";
-            }
+            TestPlanList testPlanList = new TestPlanList();
+            testPlanList.Load(comboBox_TestPlan);
         }
 
         private void comboBox_TestPlan_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //currentTestPlan.Load();
+            string selectedTestPlanID = ((ATF.TestPlan)(comboBox_TestPlan.SelectedItem)).TestPlanID;
+
+            currentTestPlan = new TestPlan(selectedTestPlanID);
+            currentTestPlan.Load();
         }
 
         private void button_AddPlan_Click(object sender, EventArgs e)
@@ -52,27 +38,11 @@ namespace ATF
             Form_Add_TestPlan AddTestPlan = new Form_Add_TestPlan();
             AddTestPlan.ShowDialog();
         }
-    }
 
-    public class TestPlanList
-    {
-        string testPlanID;
-        string testPlanName;
-
-        public TestPlanList(string TestPlanID, string TestPlanName)
+        private void button_DeletePlan_Click(object sender, EventArgs e)
         {
-            testPlanID = TestPlanID;
-            testPlanName = TestPlanName;
+
         }
 
-        public string TestPlanID
-        {
-            get { return testPlanID; }
-        }
-
-        public string TestPlanName
-        {
-            get { return testPlanName; }
-        }
     }
 }

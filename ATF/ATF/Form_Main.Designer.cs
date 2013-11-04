@@ -39,6 +39,8 @@
             this.button_RunSelected = new System.Windows.Forms.Button();
             this.button_AddPlan = new System.Windows.Forms.Button();
             this.button_AddCase = new System.Windows.Forms.Button();
+            this.button_DeletePlan = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // listView_TestCaseList
@@ -51,7 +53,7 @@
             this.listView_TestCaseList.Location = new System.Drawing.Point(12, 65);
             this.listView_TestCaseList.MultiSelect = false;
             this.listView_TestCaseList.Name = "listView_TestCaseList";
-            this.listView_TestCaseList.Size = new System.Drawing.Size(336, 175);
+            this.listView_TestCaseList.Size = new System.Drawing.Size(417, 175);
             this.listView_TestCaseList.TabIndex = 0;
             this.listView_TestCaseList.UseCompatibleStateImageBehavior = false;
             this.listView_TestCaseList.View = System.Windows.Forms.View.Details;
@@ -102,7 +104,7 @@
             // 
             // button_RunAll
             // 
-            this.button_RunAll.Location = new System.Drawing.Point(273, 255);
+            this.button_RunAll.Location = new System.Drawing.Point(354, 246);
             this.button_RunAll.Name = "button_RunAll";
             this.button_RunAll.Size = new System.Drawing.Size(75, 23);
             this.button_RunAll.TabIndex = 4;
@@ -111,7 +113,7 @@
             // 
             // button_RunSelected
             // 
-            this.button_RunSelected.Location = new System.Drawing.Point(185, 255);
+            this.button_RunSelected.Location = new System.Drawing.Point(266, 246);
             this.button_RunSelected.Name = "button_RunSelected";
             this.button_RunSelected.Size = new System.Drawing.Size(82, 23);
             this.button_RunSelected.TabIndex = 5;
@@ -130,18 +132,39 @@
             // 
             // button_AddCase
             // 
-            this.button_AddCase.Location = new System.Drawing.Point(15, 255);
+            this.button_AddCase.Location = new System.Drawing.Point(12, 246);
             this.button_AddCase.Name = "button_AddCase";
             this.button_AddCase.Size = new System.Drawing.Size(75, 23);
             this.button_AddCase.TabIndex = 7;
             this.button_AddCase.Text = "Add Case";
             this.button_AddCase.UseVisualStyleBackColor = true;
             // 
+            // button_DeletePlan
+            // 
+            this.button_DeletePlan.Location = new System.Drawing.Point(354, 23);
+            this.button_DeletePlan.Name = "button_DeletePlan";
+            this.button_DeletePlan.Size = new System.Drawing.Size(75, 23);
+            this.button_DeletePlan.TabIndex = 8;
+            this.button_DeletePlan.Text = "Delete Plan";
+            this.button_DeletePlan.UseVisualStyleBackColor = true;
+            this.button_DeletePlan.Click += new System.EventHandler(this.button_DeletePlan_Click);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(93, 246);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 9;
+            this.button2.Text = "Delete Case";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
             // Form_Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(368, 293);
+            this.ClientSize = new System.Drawing.Size(442, 278);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.button_DeletePlan);
             this.Controls.Add(this.button_AddCase);
             this.Controls.Add(this.button_AddPlan);
             this.Controls.Add(this.button_RunSelected);
@@ -171,6 +194,8 @@
         private System.Windows.Forms.Button button_RunSelected;
         private System.Windows.Forms.Button button_AddPlan;
         private System.Windows.Forms.Button button_AddCase;
+        private System.Windows.Forms.Button button_DeletePlan;
+        private System.Windows.Forms.Button button2;
     }
 }
 

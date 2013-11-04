@@ -7,12 +7,21 @@ namespace ATF
 {
     class TestCaseStep
     {
+        string testCaseStepID;
         Action action;
         Response response;
 
-        public void Load(int TestCaseStepID)
+        public void Load(string TestCaseStepID)
         {
+            testCaseStepID = TestCaseStepID;
+        }
 
+        public void Delete()
+        {
+            List<List<string>> results = new List<List<string>>();
+            DB_Connection conn = new DB_Connection(DB_ConnectionString.GetAFT_ConfigConnectionString());
+
+            results = conn.ReturnQuery("EXEC sp_DeleteTestCaseStep @TestCaseStepID="+testCaseStepID);
         }
 
         public bool verify()

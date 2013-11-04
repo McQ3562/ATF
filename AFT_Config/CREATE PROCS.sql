@@ -8,12 +8,22 @@ CREATE PROC sp_AddTestPlan
 	@Browser VARCHAR(50),
 	@TestPlanID INT OUT
 AS
-
 INSERT INTO TestPlan (TestPlanName, Browser)
 VALUES(@TestPlanName, @Browser)
 
 SET @TestPlanID = @@IDENTITY
 GO
+
+IF(EXISTS(SELECT 1 FROM sys.procedures WHERE name = 'sp_DeleteTestPlan'))
+	DROP PROCEDURE sp_DeleteTestPlan
+GO
+CREATE PROC sp_DeleteTestPlan
+	@TestPlanID INT
+AS
+DELETE FROM TestPlan
+WHERE TestPlanID=@TestPlanID
+GO
+
 IF(EXISTS(SELECT 1 FROM sys.procedures WHERE name = 'sp_AddTestCase'))
 	DROP PROCEDURE sp_AddTestCase
 GO
@@ -75,6 +85,17 @@ CREATE PROC sp_AddResponseOption
 AS
 INSERT INTO ActionOptions (TestCaseStepID, ActionOptionName, ActionOptionValue)
 VALUES (@TestCaseStepID, @ResponseOptionName, @ResponseOptionValue)
+GO
+
+IF(EXISTS(SELECT 1 FROM sys.procedures WHERE name = 'sp_GetTestPlan'))
+	DROP PROCEDURE sp_GetTestPlan
+GO
+CREATE PROC sp_GetTestPlan
+	@TestPlanID INT
+AS
+SELECT TestPlanID, TestPlanName, Browser
+FROM TestPlan
+WHERE TestPlanID=@TestPlanID
 GO
 
 IF(EXISTS(SELECT 1 FROM sys.procedures WHERE name = 'sp_GetTestPlanList'))

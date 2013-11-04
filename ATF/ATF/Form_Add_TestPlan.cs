@@ -19,12 +19,13 @@ namespace ATF
 
         private void Form_Add_TestPlan_Load(object sender, EventArgs e)
         {
-
+            BrowserList browserList = new BrowserList();
+            browserList.Load(comboBox_Browser);
         }
 
         private void button_Add_Click(object sender, EventArgs e)
         {
-            TestPlan.AddTestPlan(textBox_Text.Text, comboBox_Browser.Text);
+             TestPlan.AddTestPlan(textBox_Text.Text, comboBox_Browser.Text);
         }
 
         private void button_Close_Click(object sender, EventArgs e)
@@ -38,7 +39,7 @@ namespace ATF
 
         ArrayList browserList = new ArrayList();
 
-        public void Load()
+        public void Load(ComboBox ComboBoxReferance)
         {
             List<List<string>> results = new List<List<string>>();
             DB_Connection conn = new DB_Connection(DB_ConnectionString.GetAFT_ConfigConnectionString());
@@ -46,16 +47,15 @@ namespace ATF
 
             if (results.Count > 0)
             {
-                ArrayList testPlanList = new ArrayList();
+                List<Browser> browserList = new List<Browser>();
                 for (int counter = 1; counter < results[0].Count; counter++)
                 {
-                    //comboBox_TestPlan.Items.Add(results[1][counter]);
-                    testPlanList.Add(new TestPlanList(results[2][counter],results[1][counter]));
+                    browserList.Add(new Browser(results[0][counter],results[1][counter]));
                 }
 
-                comboBox_TestPlan.DataSource = testPlanList;
-                comboBox_TestPlan.DisplayMember = "TestPlanName";
-                comboBox_TestPlan.ValueMember = "TestPlanID";
+                ComboBoxReferance.DataSource = browserList;
+                ComboBoxReferance.DisplayMember = "BrowserName";
+                ComboBoxReferance.ValueMember = "BrowserID";
             }
         }
     }
