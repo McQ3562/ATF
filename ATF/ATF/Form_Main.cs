@@ -33,7 +33,7 @@ namespace ATF
                 for (int counter = 1; counter < results[0].Count; counter++)
                 {
                     //comboBox_TestPlan.Items.Add(results[1][counter]);
-                    testPlanList.Add(new TestPlanList(results[1][counter],results[2][counter]));
+                    testPlanList.Add(new TestPlanList(results[2][counter],results[1][counter]));
                 }
 
                 comboBox_TestPlan.DataSource = testPlanList;

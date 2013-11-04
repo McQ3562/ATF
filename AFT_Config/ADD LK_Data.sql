@@ -16,6 +16,7 @@ INSERT INTO LK_Action (ActionName) VALUES ('Click RadioButton')
 INSERT INTO LK_Action (ActionName) VALUES ('Read RadioButton')
 INSERT INTO LK_Action (ActionName) VALUES ('Click Button')
 INSERT INTO LK_Action (ActionName) VALUES ('Close Browser')
+GO
 
 TRUNCATE TABLE LK_Response
 DBCC CHECKIDENT('LK_Response', RESEED, 0)
@@ -29,5 +30,11 @@ INSERT INTO LK_Response (ResponseName) VALUES ('Read CheckBox')
 INSERT INTO LK_Response (ResponseName) VALUES ('Read RadioButton')
 GO
 
-
+TRUNCATE TABLE LK_Browser
+DBCC CHECKIDENT('LK_Response', RESEED, 0)
+INSERT INTO LK_Response (ResponseName) VALUES ('Internet Explorer')
+INSERT INTO LK_Response (ResponseName) VALUES ('Firefox')
+INSERT INTO LK_Response (ResponseName) VALUES ('Chrome')
+INSERT INTO LK_Response (ResponseName) VALUES ('Opera')
+GO
 

@@ -88,3 +88,11 @@ CREATE TABLE ResponseOptions (
 	ResponseOptionName VARCHAR(50),
 	ResponseOptionValue VARCHAR(MAX)
 )
+
+IF(EXISTS(SELECT 1 FROM sys.tables WHERE name = 'LK_Browser'))
+	DROP TABLE LK_Browser
+GO
+CREATE TABLE LK_Browser (
+	BrowserID INT IDENTITY(1,1),
+	BrowserName VARCHAR(100)
+)

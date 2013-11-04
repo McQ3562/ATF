@@ -11,8 +11,8 @@ namespace ATF
         string browserName;
         List<TestCase> TestCaseList = new List<TestCase>();
 
-        public string TestPlanName{ get; set; }
-        public string browserName { get; set; }
+        public string TestPlanName { get { return testPlanName; } set{browserName = value;} }
+        public string BrowserName { get { return browserName; } set { browserName = value;} }
 
         public void Load(string testPlanID)
         {
@@ -38,7 +38,7 @@ namespace ATF
             List<List<string>> results = new List<List<string>>();
             DB_Connection conn = new DB_Connection(DB_ConnectionString.GetAFT_ConfigConnectionString());
 
-            results = conn.ReturnQuery("EXEC sp_AddTestPlan 'Inital Test', 'FireFox', @TestPlanID OUT");
+            results = conn.ReturnQuery("EXEC sp_AddTestPlan '"+TestPlanName+"', '"+BrowserName+"', @TestPlanID OUT");
             if (results.Count > 0)
             {
                 // results;

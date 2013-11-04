@@ -78,7 +78,7 @@ VALUES (@TestCaseStepID, @ResponseOptionName, @ResponseOptionValue)
 GO
 
 IF(EXISTS(SELECT 1 FROM sys.procedures WHERE name = 'sp_GetTestPlanList'))
-	DROP PROCEDURE sp_GetTestCaseIDList
+	DROP PROCEDURE sp_GetTestPlanList
 GO
 CREATE PROC sp_GetTestPlanList
 AS
@@ -117,3 +117,13 @@ SELECT TestCaseStepID
 FROM TestCaseStep
 ORDER BY TestCaseStepID
 GO
+
+IF(EXISTS(SELECT 1 FROM sys.procedures WHERE name = 'sp_GetBrowserList'))
+	DROP PROCEDURE sp_GetBrowserList
+GO
+CREATE PROC sp_GetBrowserList
+AS
+SELECT BrowserID, BrowserName
+FROM LK_Browser
+GO
+
