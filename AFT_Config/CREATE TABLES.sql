@@ -38,6 +38,7 @@ IF(EXISTS(SELECT 1 FROM sys.tables WHERE name = 'TestCase'))
 GO
 CREATE TABLE TestCase (
 	TestCaseID INT IDENTITY(1,1),
+	TestPlanID INT,
 	TestCaseName VARCHAR(50)
 )
 GO

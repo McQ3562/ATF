@@ -46,17 +46,17 @@ namespace ATF
             }
 
             //Load Test Cases
-            List<int> IDListResults = TestCase.GetTestCaseIDList(testPlanID);
-            foreach (int listID in IDListResults)
+            List<string> IDListResults = TestCase.GetTestCaseIDList(testPlanID);
+            foreach (string listID in IDListResults)
             {
-                TestCase tmpTestCase = new TestCase();
-                tmpTestCase.Load(listID.ToString());
+                TestCase tmpTestCase = new TestCase(listID.ToString());
+                tmpTestCase.Load();
 
                 TestCaseList.Add(tmpTestCase);
             }
         }
 
-        public void Delete(string TestPlanID)
+        public void Delete()
         {
             //Delete Test Cases
             foreach (TestCase tmpTestCase in TestCaseList)
@@ -113,7 +113,7 @@ namespace ATF
 
             if (results.Count > 0)
             {
-
+                ComboBoxReferance.Items.Clear();
                 for (int counter = 1; counter < results[0].Count; counter++)
                 {
                     testPlanList.Add(new TestPlan(results[0][counter], results[1][counter]));

@@ -15,9 +15,14 @@ namespace ATF
         public string TestCaseID { get { return testCaseID; } set { testCaseID = value; } }
         public string TestCaseName { get { return testCaseName; } set { testCaseName = value; } }
 
-        public void Load(string TestCaseID)
+        public TestCase(string TestCaseID)
         {
-            foreach(int StepID in TestCaseStep.GetTestCaseStepIDList(TestCaseID))
+            testCaseID = TestCaseID;
+        }
+
+        public void Load()
+        {
+            foreach(string StepID in TestCaseStep.GetTestCaseStepIDList(testCaseID))
             {
                 TestCaseStep tmpCaseStep = new TestCaseStep();
                 tmpCaseStep.Load(StepID);
@@ -44,9 +49,9 @@ namespace ATF
 
         }
 
-        public static List<int> GetTestCaseIDList(string TestPlanID)
+        public static List<string> GetTestCaseIDList(string TestPlanID)
         {
-            List<int> CaseIDList = new List<int>();
+            List<string> CaseIDList = new List<string>();
             List<List<string>> results = new List<List<string>>();
             DB_Connection conn = new DB_Connection(DB_ConnectionString.GetAFT_ConfigConnectionString());
 
@@ -55,7 +60,7 @@ namespace ATF
             {
                 for (int counter = 1; counter < results[0].Count; counter++)
                 {
-                    CaseIDList.Add(Convert.ToInt32(results[0][counter]));
+                    CaseIDList.Add(results[0][counter]);
                 }
             }
 
@@ -66,7 +71,7 @@ namespace ATF
     class TestCaseList
     {
         string testPlanID;
-        List<TestCaseList> testCaseList = new List<TestCaseList>();
+        List<TestCase> testCaseList = new List<TestCase>();
 
         public void Load(ComboBox ComboBoxReferance, string TestPlanID)
         {
@@ -74,14 +79,14 @@ namespace ATF
 
             List<List<string>> results = new List<List<string>>();
             DB_Connection conn = new DB_Connection(DB_ConnectionString.GetAFT_ConfigConnectionString());
-            results = conn.ReturnQuery("EXEC sp_GetTestPlanList");
+            results = conn.ReturnQuery("EXEC sp_GetTestCaseList");
 
             if (results.Count > 0)
             {
 
                 for (int counter = 1; counter < results[0].Count; counter++)
                 {
-                    //testCaseList.Add(new TestCase(results[0][counter]));
+                    testCaseList.Add(new TestCase(results[0][counter]));
                 }
 
             }

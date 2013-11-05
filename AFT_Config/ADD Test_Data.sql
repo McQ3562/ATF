@@ -6,7 +6,7 @@ DECLARE @TestCaseStepID INT
 
 EXEC sp_AddTestPlan 'Inital Test', 'FireFox', @TestPlanID OUT
 
-EXEC sp_AddTestCase 'GoogleTest', @TestCaseID OUT
+EXEC sp_AddTestCase @TestPlanID, 'GoogleTest', @TestCaseID OUT
 
 EXEC dbo.sp_AddTestCaseStep
 @TestCaseID=@TestCaseID,

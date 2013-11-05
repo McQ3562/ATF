@@ -28,12 +28,13 @@ IF(EXISTS(SELECT 1 FROM sys.procedures WHERE name = 'sp_AddTestCase'))
 	DROP PROCEDURE sp_AddTestCase
 GO
 CREATE PROC sp_AddTestCase
+	@TestPlanID INT,
 	@TestCaseName VARCHAR(50),
 	@TestCaseID INT OUT
 AS
 
-INSERT INTO TestCase (TestCaseName)
-VALUES(@TestCaseName)
+INSERT INTO TestCase (TestPlanID, TestCaseName)
+VALUES(@TestPlanID, @TestCaseName)
 
 SET @TestCaseID = @@IDENTITY
 GO

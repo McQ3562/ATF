@@ -21,8 +21,7 @@ namespace ATF
 
         private void Form_Main_Load(object sender, EventArgs e)
         {
-            TestPlanList testPlanList = new TestPlanList();
-            testPlanList.Load(comboBox_TestPlan);
+            populateForm_Main();
         }
 
         private void comboBox_TestPlan_SelectedIndexChanged(object sender, EventArgs e)
@@ -37,12 +36,46 @@ namespace ATF
         {
             Form_Add_TestPlan AddTestPlan = new Form_Add_TestPlan();
             AddTestPlan.ShowDialog();
+
+            populateForm_Main();
         }
 
         private void button_DeletePlan_Click(object sender, EventArgs e)
         {
+            currentTestPlan.Delete();
+
+            populateForm_Main();
+        }
+
+        private void button_AddCase_Click(object sender, EventArgs e)
+        {
 
         }
 
+        private void button_DeleteCase_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button_RunSelected_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button_RunAll_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        public void populateForm_Main()
+        {
+            TestPlanList testPlanList = new TestPlanList();
+            testPlanList.Load(comboBox_TestPlan);
+
+            if (currentTestPlan != null)
+            {
+                //pop test cases
+            }
+        }
     }
 }

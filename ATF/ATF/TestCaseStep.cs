@@ -30,9 +30,9 @@ namespace ATF
             return true;
         }
 
-        public static List<int> GetTestCaseStepIDList(string TestCaseID)
+        public static List<string> GetTestCaseStepIDList(string TestCaseID)
         {
-            List<int> StepIDList = new List<int>();
+            List<string> StepIDList = new List<string>();
             List<List<string>> results = new List<List<string>>();
             DB_Connection conn = new DB_Connection(DB_ConnectionString.GetAFT_ConfigConnectionString());
 
@@ -41,7 +41,7 @@ namespace ATF
             {
                 for (int counter = 1; counter < results[0].Count; counter++)
                 {
-                    StepIDList.Add(Convert.ToInt32(results[0][counter]));
+                    StepIDList.Add(results[0][counter]);
                 }
             }
 

@@ -40,7 +40,7 @@
             this.button_AddPlan = new System.Windows.Forms.Button();
             this.button_AddCase = new System.Windows.Forms.Button();
             this.button_DeletePlan = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.button_DeleteCase = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // listView_TestCaseList
@@ -110,6 +110,7 @@
             this.button_RunAll.TabIndex = 4;
             this.button_RunAll.Text = "Run All";
             this.button_RunAll.UseVisualStyleBackColor = true;
+            this.button_RunAll.Click += new System.EventHandler(this.button_RunAll_Click);
             // 
             // button_RunSelected
             // 
@@ -119,6 +120,7 @@
             this.button_RunSelected.TabIndex = 5;
             this.button_RunSelected.Text = "Run Selected";
             this.button_RunSelected.UseVisualStyleBackColor = true;
+            this.button_RunSelected.Click += new System.EventHandler(this.button_RunSelected_Click);
             // 
             // button_AddPlan
             // 
@@ -138,6 +140,7 @@
             this.button_AddCase.TabIndex = 7;
             this.button_AddCase.Text = "Add Case";
             this.button_AddCase.UseVisualStyleBackColor = true;
+            this.button_AddCase.Click += new System.EventHandler(this.button_AddCase_Click);
             // 
             // button_DeletePlan
             // 
@@ -149,21 +152,22 @@
             this.button_DeletePlan.UseVisualStyleBackColor = true;
             this.button_DeletePlan.Click += new System.EventHandler(this.button_DeletePlan_Click);
             // 
-            // button2
+            // button_DeleteCase
             // 
-            this.button2.Location = new System.Drawing.Point(93, 246);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 9;
-            this.button2.Text = "Delete Case";
-            this.button2.UseVisualStyleBackColor = true;
+            this.button_DeleteCase.Location = new System.Drawing.Point(93, 246);
+            this.button_DeleteCase.Name = "button_DeleteCase";
+            this.button_DeleteCase.Size = new System.Drawing.Size(75, 23);
+            this.button_DeleteCase.TabIndex = 9;
+            this.button_DeleteCase.Text = "Delete Case";
+            this.button_DeleteCase.UseVisualStyleBackColor = true;
+            this.button_DeleteCase.Click += new System.EventHandler(this.button_DeleteCase_Click);
             // 
             // Form_Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(442, 278);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.button_DeleteCase);
             this.Controls.Add(this.button_DeletePlan);
             this.Controls.Add(this.button_AddCase);
             this.Controls.Add(this.button_AddPlan);
@@ -195,7 +199,7 @@
         private System.Windows.Forms.Button button_AddPlan;
         private System.Windows.Forms.Button button_AddCase;
         private System.Windows.Forms.Button button_DeletePlan;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button_DeleteCase;
     }
 }
 
