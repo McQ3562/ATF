@@ -20,6 +20,12 @@ namespace ATF
             testCaseID = TestCaseID;
         }
 
+        public TestCase(string TestCaseID, string TestCaseName)
+        {
+            testCaseID = TestCaseID;
+            testCaseName = TestCaseName;
+        }
+
         public void Load()
         {
             foreach(string StepID in TestCaseStep.GetTestCaseStepIDList(testCaseID))
@@ -79,14 +85,14 @@ namespace ATF
 
             List<List<string>> results = new List<List<string>>();
             DB_Connection conn = new DB_Connection(DB_ConnectionString.GetAFT_ConfigConnectionString());
-            results = conn.ReturnQuery("EXEC sp_GetTestCaseList");
+            results = conn.ReturnQuery("EXEC sp_GetTestCaseList @TestPlanID="+testPlanID);
 
             if (results.Count > 0)
             {
 
                 for (int counter = 1; counter < results[0].Count; counter++)
                 {
-                    testCaseList.Add(new TestCase(results[0][counter]));
+                    testCaseList.Add(new TestCase(results[0][counter],results[1][counter]));
                 }
 
             }

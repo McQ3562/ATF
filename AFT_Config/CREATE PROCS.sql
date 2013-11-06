@@ -123,9 +123,11 @@ IF(EXISTS(SELECT 1 FROM sys.procedures WHERE name = 'sp_GetTestCaseList'))
 	DROP PROCEDURE sp_GetTestCaseList
 GO
 CREATE PROC sp_GetTestCaseList
+	@TestPlanID INT
 AS
 SELECT TestCaseID, TestCaseName
 FROM TestCase
+WHERE TestPlanID=@TestPlanID
 ORDER BY TestCaseID
 GO
 
