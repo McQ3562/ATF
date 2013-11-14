@@ -113,6 +113,7 @@ namespace ATF
 
             if (results.Count > 0)
             {
+                ComboBoxReferance.DataSource = null;
                 ComboBoxReferance.Items.Clear();
                 for (int counter = 1; counter < results[0].Count; counter++)
                 {

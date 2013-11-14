@@ -72,6 +72,14 @@ namespace ATF
 
             return CaseIDList;
         }
+
+        public static void AddTestCase(string TestPlanID, string TestCaseName)
+        {
+            List<List<string>> results = new List<List<string>>();
+            DB_Connection conn = new DB_Connection(DB_ConnectionString.GetAFT_ConfigConnectionString());
+
+            results = conn.ReturnQuery("DECLARE @TestCaseID INT; EXEC sp_AddTestCase '" + TestPlanID + "', '" + TestCaseName + "', @TestCaseID OUT");
+        }
     }
 
     class TestCaseList

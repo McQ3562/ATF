@@ -79,6 +79,12 @@
     <Compile Include="ControlObjects\TextBoxControl.cs" />
     <Compile Include="ControlObjects\WebPageControl.cs" />
     <Compile Include="DB_Connection.cs" />
+    <Compile Include="Form_Add_TestCase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_Add_TestCase.Designer.cs">
+      <DependentUpon>Form_Add_TestCase.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form_Add_TestPlan.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -103,6 +109,9 @@
     <Compile Include="TestCase.cs" />
     <Compile Include="TestCaseStep.cs" />
     <Compile Include="TestPlan.cs" />
+    <EmbeddedResource Include="Form_Add_TestCase.resx">
+      <DependentUpon>Form_Add_TestCase.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form_Add_TestPlan.resx">
       <DependentUpon>Form_Add_TestPlan.cs</DependentUpon>
     </EmbeddedResource>

@@ -49,7 +49,10 @@ namespace ATF
 
         private void button_AddCase_Click(object sender, EventArgs e)
         {
+            Form_Add_TestCase tmpfrmAddTestCase = new Form_Add_TestCase(currentTestPlan.TestPlanID, currentTestPlan.TestPlanName);
+            tmpfrmAddTestCase.ShowDialog();
 
+            populateForm_Main();
         }
 
         private void button_DeleteCase_Click(object sender, EventArgs e)

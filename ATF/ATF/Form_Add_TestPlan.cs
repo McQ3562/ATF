@@ -26,6 +26,8 @@ namespace ATF
         private void button_Add_Click(object sender, EventArgs e)
         {
              TestPlan.AddTestPlan(textBox_Text.Text, comboBox_Browser.Text);
+
+             this.Close();
         }
 
         private void button_Close_Click(object sender, EventArgs e)
