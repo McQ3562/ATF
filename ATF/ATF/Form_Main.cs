@@ -26,10 +26,13 @@ namespace ATF
 
         private void comboBox_TestPlan_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string selectedTestPlanID = ((ATF.TestPlan)(comboBox_TestPlan.SelectedItem)).TestPlanID;
+            if (comboBox_TestPlan.SelectedItem != null)
+            {
+                string selectedTestPlanID = ((ATF.TestPlan)(comboBox_TestPlan.SelectedItem)).TestPlanID;
 
-            currentTestPlan = new TestPlan(selectedTestPlanID);
-            currentTestPlan.Load();
+                currentTestPlan = new TestPlan(selectedTestPlanID);
+                currentTestPlan.Load();
+            }
         }
 
         private void button_AddPlan_Click(object sender, EventArgs e)
@@ -78,6 +81,9 @@ namespace ATF
             if (currentTestPlan != null)
             {
                 //pop test cases
+                TestCaseList testCaseList = new TestCaseList();
+
+                testCaseList.Load(listView_TestCaseList, currentTestPlan.TestPlanID);
             }
         }
     }

@@ -87,7 +87,7 @@ namespace ATF
         string testPlanID;
         List<TestCase> testCaseList = new List<TestCase>();
 
-        public void Load(ComboBox ComboBoxReferance, string TestPlanID)
+        public void Load(ListView ListViewControl, string TestPlanID)
         {
             testPlanID = TestPlanID;
 
@@ -100,6 +100,8 @@ namespace ATF
 
                 for (int counter = 1; counter < results[0].Count; counter++)
                 {
+                    ListViewItem tmpListViewItem = new ListViewItem();
+
                     testCaseList.Add(new TestCase(results[0][counter],results[1][counter]));
                 }
 
